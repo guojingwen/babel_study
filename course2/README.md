@@ -55,16 +55,18 @@
 1. `cnpm install --save-dev @babel/core @babel/cli @babel/preset-env`
 1. `npx babel src/module --out-dir lib/module`
 
-- 手动写一个html文件编译后的文件不能在浏览器使用
-- 可以在node环境使用 node lib/module/1_module.js
-- 如果在通过webpack处理下就可以在浏览器运行（后面会提到course4）
+- 手动写一个html文件引入编译后的文件，浏览器上打开并不能正常运行
+- 可以在node环境正常运行 node lib/module/1_module.js
+- 如果再通过webpack处理下，就可以在浏览器运行（后面会提到course4）
 
-这个案例可以了解到webpack默认会进行模块化进行转换，转换成浏览器可以运行的语法，而babel默认不会做这件事情，新手要把babel与webpack区分开分别学习
+从这个案例可以了解到webpack默认会进行模块化进行转换，转换成浏览器可以运行的语法，而babel默认不会做这件事情，因此初学babel最好把它与webpack区分开。
 
 
 #### 案例2 动态编辑
 使用`babel.transform`程序动态编译
+
 `node src/transform/2_demo.js`
+
 通过配置不同plugin可以了解babel转换前后的代码异同
 
 

@@ -4,7 +4,7 @@ Babel 是一个 JavaScript 编译器
 
 Babel 是一个工具链，主要用于将 ECMAScript 2015+ 版本的代码转换为向后兼容的 JavaScript 语法，以便能够运行在当前和旧版本的浏览器或其他环境中。
 
-本文主要以babel7来讲解babel，这里提供一个demo，包含文中所有案例，我偷个懒，示例代码将下文中贴出，你可以把这个demo下载，按照本文的步骤验证一下。
+本文主要以babel7来讲解babel。我偷个懒，这个仓库里的代码下文中不在贴出，你可以把这个clone到本地，按照本文的步骤验证一下。
 
 另外补充一句：初学babel一定要把它跟webpack区分开来，否则你可能会迷惑哪些是babel做的哪些是webpack做的。
 
@@ -25,8 +25,19 @@ Babel 是一个工具链，主要用于将 ECMAScript 2015+ 版本的代码转�
     - babel6 `babel-polyfill` 对应 babel7的`@babel/polyfill`，但是babel从7.4.0开始，不推荐使用此软件包，而直接包括`core-js`
 
 1. 新增 `babel.config.js` 配置文件
-    - 全局配置 `babel.config.js` 局部配置 `.babelrc`
+    - 全局配置 `babel.config.js` 局部配置 `.babelrc` 用于monorepo项目
     - `babel.config.js`可以定义全局配置的作用范围以及局部配置的开启关闭
+    ```
+    // monorepo项目示例
+    |- backend
+      |-package.json
+    |- frontend
+      |-package.json
+    |- node_modules
+    |- config.js
+    |- babel.config.js
+    |- package.json
+    ```
 
 1. stage(提案)预设变更
     - babel6有 `babel-preset-stage-x` babel7废除了这些预设，需要手动引入plugin，预设语法并不多可以在`node_modules/@babel/preset-stage-0`看一下

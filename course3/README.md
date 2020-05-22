@@ -49,13 +49,15 @@
 
 所以有了 `@babel/runtime` 这个东西 为您的代码创建一个沙盒环境。
 
-为了多个文件有多处使用同一个es6的api(如`Array.includes`、 `new Promise`)为避免代码重复，所以有了`@babel/plugin-transform-runtime`这个东西
+如果有多个文件有多处使用同一个es6的api(如`Array.from`)，为避免代码重复，所以有了`@babel/plugin-transform-runtime`这个东西
 
 需要同时安装这两个包，注意：`corejs` 是生产依赖
 - `cnpm i -D @babel/plugin-transform-runtime`
 - `cnpm i -S @babel/runtime-corejs3`
 
 - `npx babel src/4_lib_array_from.js --out-file lib/4_lib_array_from_compiled.js  --config-file=./babel.config.lib.js`
+
+查看编译后的文件`4_lib_array_from_compiled.js`发现使用`Array.from`的地方是一个引用，全局只有一份`Array.from`的沙盒实现
 
 ### 注意：
 - `corejs`也包含stage阶段的polyfill

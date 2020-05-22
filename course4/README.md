@@ -37,5 +37,5 @@
 - `cnpm i -D @babel/plugin-proposal-do-expressions`
 - `npx webpack --config webpack.babel.config.js`
 
-如果项目根目录下还有配置文件如babel.config.js会把配置项merge到配置文件里
+如果项目根目录下还有配置文件如`babel.config.js`会把配置项merge到配置文件里
 
