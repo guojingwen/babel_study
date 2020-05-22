@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   mode: 'none',
-  entry: './src/main.js',
+  entry: './src/main_add_do.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist1')
@@ -17,7 +17,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: [],
-            plugins: ['@babel/plugin-transform-arrow-functions']
+            plugins: ['@babel/plugin-proposal-do-expressions']
           }
         },
       }

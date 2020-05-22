@@ -91,6 +91,7 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _moduleA__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+var t;
 
 console.log('main.js');
 Object(_moduleA__WEBPACK_IMPORTED_MODULE_0__["say"])();
@@ -99,7 +100,15 @@ var speak = function speak() {
   console.log('I can speck Chinese');
 };
 
-speak();
+speak(); // syntax示例 do语句提案
+
+function f() {
+  console.log('f');
+  return 2;
+}
+
+var x = (console.log('do x 运行了'), t = f(), t * t + 1);
+console.log('x', x);
 
 /***/ }),
 /* 1 */

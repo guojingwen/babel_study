@@ -1,23 +1,27 @@
-## 关于babel
-- 官网 中文  https://www.babeljs.cn/docs/usage
-- Babel 是一个 JavaScript 编译器
-- Babel 是一个工具链，主要用于将 ECMAScript 2015+ 版本的代码转换为向后兼容的 JavaScript 语法，以便能够运行在当前和旧版本的浏览器或其他环境中。
+```
+├── course1
+    ├── lib
+        ├── 1_compiled_arrow.js
+        ├── 1_compiled_arrow_block.js
+        ├── 1_test.js
+    ├── src
+        ├── 1_test.js
+    ├── package.json
+```
 
-- 初学babel一定要把它跟webpack区分开来，否则你可能会迷惑那些是babel做的那些是webpack做的
+## 使用babel-cli
+1. `npm init -y` #创建`package.json`
+1. `cnpm install --save-dev @babel/core @babel/cli`
+1. `npx babel src --out-dir lib`
+    - 查看编译后的文件与源文件一模一样，这是因为我们还未对babel做任何配置.
+    - 下面让我们来翻译箭头函数
+1. `cnpm i -D @babel/plugin-transform-arrow-functions`
+1. `npx babel src/1_test.js --out-file lib/1_compiled_arrow.js --plugins=@babel/plugin-transform-arrow-functions`
+    - 查看`lib/1_compiled_arrow.js`发现箭头函数已经被翻译
+    - 我们再翻译一下 块级作用域吧， `let` `const`
+1. `cnpm i -D @babel/plugin-transform-block-scoping`
+1. `npx babel src/1_test.js --out-file lib/1_compiled_arrow_block.js --plugins=@babel/plugin-transform-arrow-functions,@babel/plugin-transform-block-scoping`
+    - 查看`lib/1_compiled_arrow_block.js` 发现`const`已经变成`var`
 
-## 
-npm init -y #创建package.json
-cnpm install --save-dev @babel/core @babel/cli
 
-npx babel src --out-dir lib # 输出文件与源文件一模一样
-
-翻译箭头函数
-cnpm i -D @babel/plugin-transform-arrow-functions
-npx babel src/1_test.js --out-file lib/1_compiled_arrow.js --plugins=@babel/plugin-transform-arrow-functions
-
-再翻译一下 块级作用域 let const
-cnpm i -D @babel/plugin-transform-block-scoping
-npx babel src/1_test.js --out-file lib/1_compiled_arrow_block.js --plugins=@babel/plugin-transform-arrow-functions,@babel/plugin-transform-block-scoping
-
-更多babel cli 参数 [官方cli文档](https://www.babeljs.cn/docs/babel-cli)
-
+### 关于babel-cli参数 请参阅 [官方cli文档](https://www.babeljs.cn/docs/babel-cli)
