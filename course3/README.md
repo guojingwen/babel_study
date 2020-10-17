@@ -64,3 +64,10 @@
 - `@babel/polyfill` 从Babel 7.4.0开始，不推荐使用此软件包
 
 
+### 补充： ES7不同阶段语法提案的转码规则（共有4个阶段）
+- Stage 0 - 稻草人(strawman): 只是一个想法，经过 TC39 成员提出即可。
+- Stage 1 - 提案(proposal): 初步尝试。
+- Stage 2 - 初稿(draft): 完成初步规范。
+- Stage 3 - 候选(candidate): 完成规范和浏览器初步实现。
+
+
